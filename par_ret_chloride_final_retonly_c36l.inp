@@ -1,0 +1,400 @@
+*fichier:  par_all22_prot.inp
+*>>>>>>>>>> Developmental Parameter File for Proteins <<<<<<<<<<
+*>>>>>>>>>>>>>>>>> Using All Hydrogens (ALLH) <<<<<<<<<<<<<<<<<<
+*>>>>>>>>>>>>>>>>>>>>>>> May 1993 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+*>>>>>>> Direct comments to Alexander D. MacKerell Jr. <<<<<<<<<
+*>>>>>> 410-706-7442 or email: alex,mmiris.ab.umd.edu  <<<<<<<<<
+* These files are a beta release; additional parameter development
+* and testing may lead to alteration of the contents.
+* $ADG - modifications made by Andreea D. Gruia on the force constants
+*      for dihedral and improper angles belonging to the retinal moiety 
+*      to allow pyramidalization of nitrogen and carbon atoms (24.02.2003)
+* &ADG - added multiplicity terms to the diherals of the  retinal 
+*        moiety by Andreea D. Gruia to allow pyramidalization of 
+*        the carbon atoms (24.01.2003)
+
+
+
+BONDS
+! Retinal Protonated Schiff base
+! ******************************
+! bond parameters 
+!
+! * based on RHF/6-31G* ((E)-N-methyl-2-propenylidenimine))
+! x geometry based on Hamanaka X-ray structure
+
+HPL   CR7    330.0000    1.081 ! * 
+HPL   CR8    330.0000    1.081 ! * 
+HPL   CR10   330.0000    1.081 ! * 
+HPL   CR11   330.0000    1.081 ! * 
+HPL   CR12   330.0000    1.081 ! * 
+HPL   CR14   330.0000    1.081 ! * 
+HPL1  CR15   330.0000    1.081 ! * 
+
+CR6   CR5    250.0000    1.3285 ! x
+CR6   CT3    187.0000    1.5344 ! x
+CR9   CT3    187.0000    1.4909 ! x
+CR13  CT3    187.0000    1.4930 ! x
+CR5   CT3    187.0000    1.5125 ! x
+CR5   CT2    187.0000    1.5125 ! New WARNING  
+CR6   CR7    250.0000    1.4839 ! x
+CR7   CR8    250.0000    1.3168 ! x
+CR8   CR9    250.0000    1.4684 ! x
+CR9   CR10   250.0000    1.3462 ! x
+CR10  CR11   250.0000    1.4439 ! x 
+CR11  CR12   250.0000    1.3386 ! x
+CR12  CR13   250.0000    1.4545 ! x 
+CR13  CR14   250.0000    1.3455 ! x
+CR14  CR15   400.0000    1.4578 ! *  x
+! 
+
+!
+
+!
+! Protonated Schiff base 
+! 
+CR15 NCH1    435.0000    1.274 ! *  *
+NCH1 HCR     440.0000    1.013 ! *  *
+!NCH1 CT     515.0000    1.470 ! 1.475 !  idem NH1 CT
+NCH1  CT2    290.000     1.4300 ! ALLOW   ALI PEP POL ARO
+                ! Alanine Dipeptide ab initio calc's (LK)
+		! idem NH1 CT
+
+! Constantes de forces fitees sur mini RHF/6-31G*
+! E-N-methyl propenylidenimine (trans)
+!
+!      HAR              HPL1           HPL
+!          \              |           /
+!     HAR - CTR - NCH1 = CR* - CR* = CR*
+!      HAR /       |            |      \
+!                 HCR          HPL     HPL
+
+!HPL  CR13   330.0000    1.076 !1.075
+!HPL  CR14   330.0000    1.074 !1.075
+!HPL1 CR15   330.0000    1.077
+!HAR  CTR    315.0000    1.080 ! 
+
+!CR13 CR14   600.0000    1.329 !1.331 
+!CR14 CR15   400.0000    1.444 !1.439 
+
+! Schiff base protonnee
+
+!CR15 NCH1   435.000    1.274 ! 1.278 
+!NCH1  HCR   440.000    1.013 ! 1.002 !  idem NH1 HC
+!NCH1  CTR   515.000    1.470 ! 1.475 !  idem NH1 CT
+
+
+ANGLE
+! Retinal Protonated Schiff base
+! ******************************
+! angle parameters 
+!
+! Valeurs de references : mol17.crd 
+! Angles de la BS  CH2=CH-CH=NH+-CH opt RHF/6-31g*
+!
+!HPL   CR13 CR14  85.00     122.26  
+!HPL   CR14 CR13  70.00     122.28  !121.70
+!HPL1  CR15 CR14  50.00     118.92  !119.03
+!HPL   CR14 CR15  50.00     118.08  !118.65
+!HPL   CR13 HPL   50.00     116.58  !115.48
+!CR13  CR14 CR15  95.00     119.72  !119.65 
+!NCH1  CTR  HAR   95.00     108.50  !109.14
+!HAR   CTR  HAR  100.00     109.30  ! 
+				
+
+!
+! Schiff base: 
+! Angles de la geometrie opt RHF/6-31g* de BS
+!
+!CR15 NCH1  HCR  58.00     118.10 !117.93
+!CR15 NCH1  CTR  50.00     124.72 !125.18 
+!CR14 CR15 NCH1  70.00     123.78 !124.29
+!HPL1 CR15 NCH1  50.00     117.30 !116.68
+!CTR  NCH1  HCR  35.00     117.18 !116.89 !CH2E NH1 HC en fait 
+
+HPL  CR7  CR6    41.0     117.78 ! x
+HPL  CR7  CR8    41.0     117.78 ! x
+HPL  CR8  CR7    41.0     116.77 ! x
+HPL  CR8  CR9    41.0     116.77 ! x
+HPL  CR10 CR9    41.0     116.39 ! x
+HPL  CR10 CR11   41.0     116.39 ! x
+HPL  CR11 CR10   41.0     118.22 ! x
+HPL  CR11 CR12   41.0     118.22 ! x
+HPL  CR12 CR11   41.0     117.00 ! x
+HPL  CR12 CR13   41.0     117.00 ! x
+HPL  CR14 CR13   70.0     117.07 ! x 
+HPL1 CR15 CR14   50.0     118.41 ! x 118.92 ! *  
+HPL  CR14 CR15   50.0     117.07 ! x 118.08 ! * 
+HA  CT3  CR5    49.3     107.50  !!!!!!!!! anb HA to HA3 
+HA  CT2  CR5    49.3     107.50 ! New  !!!!!!!!! anb HA to HA2 
+HA  CT3  CR9    49.3     107.50  !!!!!!!!! anb HA to  HA3
+HA  CT3  CR13   49.3     107.50 !!!!!!!!! anb HA to HA3
+CR6  CR7  CR8    95.0     124.43 ! * x
+CR7  CR8  CR9    95.0     126.46 ! * x
+CR8  CR9  CR10   95.0     118.36 ! * x
+CR9  CR10 CR11   95.0     127.21 ! * x
+CR10 CR11 CR12   95.0     123.56 ! * x
+CR11 CR12 CR13   95.0     125.99 ! * x
+CR12 CR13 CR14   95.0     118.23 ! * x
+CR13 CR14 CR15   95.0     125.86 ! * x
+CR7  CR6  CR5    60.0     122.55 ! x
+CR5  CR6  CT3    45.8     122.40 ! x
+CR7  CR6  CT3    45.8     115.04 ! x
+CR8  CR9  CT3    45.8     118.37 ! x
+CR10 CR9  CT3    45.8     123.28 ! x 
+CR12 CR13 CT3    45.8     118.28 ! x
+CR14 CR13 CT3    45.8     123.45 ! x
+CR6  CR5  CT3    45.8     123.06 ! x
+CR5  CT2  CT2    51.8     115.15 ! x
+CR6  CT3  CT2    51.8     110.25 ! x
+CT3  CR5  CT2    51.1     113.09 ! x
+CT2  CT3  CT3    58.35    113.50 ! New C2-C1-C16 et C2-C1-C17 as CT CT CT  
+CR6  CT3  CT3    51.8     110.25 ! New C6-C1-C16 et C6-C1-C17 as CR6 CT CT 
+CT3  CT3  CT3    58.35    113.50 ! New C17-C1-C16 as CT CT CT 
+CR6  CR5  CT2    45.8     123.06 ! New C6-C5-C4 as CR6-CR5-CT
+!
+!
+! Protonated Shiff base 
+! 
+
+CR15 NCH1 HCR    58.0     118.10 ! * *
+CR15 NCH1 CT2    50.0     124.72 ! * *
+HPL1 CR15 NCH1   50.0     117.30 ! * *
+CR14 CR15 NCH1   70.0     123.78 ! * *
+CT2  NCH1 HCR    35.0     117.18 ! * *
+NCH1  CT2  CT2    70.000   113.5000 ! ALLOW   ALI PEP POL ARO
+                ! Alanine Dipeptide ab initio calc's (LK)
+		! idem NH1 CT CT
+NCH1  CT2  HA    51.500   109.5000 ! ALLOW   ALI PEP POL ARO !!!!!!!!! anb HA to HA2
+                ! NMA crystal (JCS)
+		! idem NH1 CT HA
+
+
+DIHE
+! Retinal Protonated Schiff base
+! ******************************
+! 
+! Methyl groups
+!
+
+HA  CT3  CR9  CR8      0.000     3  0.000  !!!!!!!!! anb HA to HA3
+HA  CT3  CR13 CR12     0.000     3  0.000  !!!!!!!!! anb HA to HA3
+
+
+CR6  CR5  CT3  HA      0.167     3  180.000 !J.Smith&Karplus 1991 JACS!16.01.2003 !!!!!!!!! anb HA to HA3
+CR10 CR9  CT3  HA      0.167     3  180.000 !!!!!!!!! anb HA to HA3
+CR14 CR13 CT3  HA      0.167     3  180.000 !!!!!!!!! anb HA to HA3
+
+! Cycle beta-ionone
+!
+X    CR5  CT3  X        0.000     3   0.000 
+X    CR5  CT2  X        0.000     3   0.000 
+X    CR6  CT3  X        0.000     3   0.000 
+!
+! Single bonds
+! ************
+! From butadiene ab initio RHF/6-31G* cal's (Mafalda)
+!
+
+!X    CR6  CR7  X        0.0000    3      0.000 ! $ADG-commented
+!X    CR8  CR9  X        0.0000    3      0.000 ! $ADG-commented
+!X    CR10 CR11 X        0.0000    3      0.000 ! $ADG-commented
+!X    CR12 CR13 X        0.0000    3      0.000 ! $ADG-commented
+
+
+X    CR6  CR7  X        1.5100    2    180.000 ! &ADG
+X    CR8  CR9  X        2.4900    2    180.000 ! &ADG
+X    CR10 CR11 X        3.5855    2    180.000 ! &ADG
+X    CR12 CR13 X        3.9800    2    180.000 ! &ADG
+
+CR5  CR6  CR7  CR8      0.1600    1    0.000  
+! CR5  CR6  CR7  CR8      4.6570    2  180.000 ! $ADG -commented  
+CR5  CR6  CR7  CR8      1.1324    3    0.000  
+CR5  CR6  CR7  CR8      0.3006    4    0.000  
+
+CR7  CR8  CR9  CR10     0.1600    1    0.000 
+! CR7  CR8  CR9  CR10     7.5500    2  180.000 ! $ADG -commented 
+CR7  CR8  CR9  CR10     1.1324    3    0.000 
+CR7  CR8  CR9  CR10     0.3006    4    0.000 
+
+CR9  CR10 CR11 CR12     0.1600    1    0.000 
+! CR9  CR10 CR11 CR12    10.8300    2  180.000 ! $ADG - commented 
+CR9  CR10 CR11 CR12     1.1324    3    0.000 
+CR9  CR10 CR11 CR12     0.3006    4    0.000 
+
+CR11 CR12 CR13 CR14     0.1600    1    0.000 
+! CR11 CR12 CR13 CR14    11.9999    2  180.000 ! $ADG - commented
+CR11 CR12 CR13 CR14     1.1324    3    0.000 
+CR11 CR12 CR13 CR14     0.3006    4    0.000 
+
+! Double bonds
+! ************
+! J.Am.Chem.Soc. 106 (1984) 577 ab initio on decapentene   
+! CH2=CH-CH=CH-CH=CH-CH=CH-CH=CH2 double bonds
+! External barriers ; 45 kcal.mol-1
+! Intermediate barriers : 37 kcal.mol-1
+! Internal barrier : 35 kcal.mol-1
+!
+
+X    CR5  CR6  X        8.000     2  180.000  ! in the cycle
+! All these derived from KS
+X    CR7  CR8  X        5.000     2  180.000 !  $ADG
+X    CR9  CR10 X        4.258     2  180.000 !  $ADG
+X    CR11 CR12 X        4.245     2  180.000 !  $ADG
+
+! 2-D umbrella calculations - J. Baudry S. Crouzy - September 1997
+! These n=1 terms were set to zero for Umbrella sampling MD
+! n=1 terms were NOT set to zero :
+! n=1 terms Optimized to reproduce ab-nitio
+! TT 0.0,  TC 0.0, CT 0.64, CC 0.65
+! We get TT 0.0,  TC 0.0, CT 0.63, CC 0.66
+! c.f. Baudry, Crouzy, Roux, Smith
+! J. Chem. Comput. Sci. Vol 37 No 6, 1018-1024 (1997)
+
+CR15 CR14 CR13 CT3      3.185     2  180.000  ! $ADG
+HPL  CR14 CR13 CT3      3.185     2  180.000  ! $ADG
+HPL  CR14 CR13 CR12     3.185     2  180.000  ! $ADG
+CR15 CR14 CR13 CR12     3.185     2  180.000  ! $ADG
+CR15 CR14 CR13 CR12     0.65      1    0.000 
+
+HPL1 CR15 NCH1 CT2      3.800     2  180.000  ! $ADG
+CR14 CR15 NCH1 HCR      3.800     2  180.000  ! $ADG
+HPL1 CR15 NCH1 HCR      3.800     2  180.000  ! $ADG
+CR14 CR15 NCH1 CT2      3.800     2  180.000  ! $ADG
+CR14 CR15 NCH1 CT2      0.51      1  180.000 
+
+!
+! Special single bond
+! *******************
+! From RHF/6-31G* ab initio calc's 
+! on (E)-N-methyl-propenylidenimine (Mafalda)
+!
+
+!HPL  CR14 CR15 HPL1     0.000     3    0.000 ! $ADG-commented
+!HPL  CR14 CR15 NCH1     0.000     3    0.000 ! $ADG-commented
+!CR13 CR14 CR15 HPL1     0.000     3    0.000 ! $ADG-commented
+!
+
+X    CR14 CR15 X         4.930     2    180.000 ! &ADG
+
+
+CR13 CR14 CR15 NCH1     1.504     1  180.000 
+!CR13 CR14 CR15 NCH1    14.800     2  180.000  ! $ADG-commented
+CR13 CR14 CR15 NCH1     0.916     3    0.000 
+CR13 CR14 CR15 NCH1     0.401     4    0.000 
+!
+! Protonated Schiff base
+!
+
+HA   CT2  NCH1 CR15     0.000     3   0.000  ! idem HA   CT   NH1  C    
+HA   CT2  NCH1 HCR      0.000     3   0.000  ! idem HA   CT   NH1  HA 
+CT2  CT2  NCH1 CR15     0.300     1   0.000  ! ALLOW PEP 
+            ! idem :    Alanine Dipeptide ab initio calc's (LK)
+CT2  CT2  NCH1  HCR     0.300     1   0.000   
+
+
+IMPR
+! Retinal Protonated Schiff base
+! ******************************
+! 
+! impr parameters
+!
+! From Nicolas :
+! CPB   C    CPB  CPA      90.00     0      0.00
+! similar to CR8   CT  CR8  CR7        .... 
+! CPM3  CPA   CPA  HA       29.40     0      0.00
+! similar to CR11 HPL  CR10  CR12 for example  .
+
+! nouvel essai improper redefinis
+CR15  CR14  NCH1  HPL1     85.00     0  0.000 ! $ADG
+CR14  CR13  CR15  HPL	   15.00     0  0.000 ! $ADG
+CR13  CR12  CR14  CT3	   40.00     0  0.000 ! $ADG
+CR12  CR11  CR13  HPL	   20.00     0  0.000 ! $ADG
+CR11  CR10  CR12  HPL	   40.00     0  0.000 ! $ADG
+CR10  CR9   CR11  HPL	   25.00     0  0.000 ! $ADG
+CR9   CR8   CR10  CT3	   40.00     0  0.000 ! $ADG
+CR8   CR7   CR9   HPL	   10.00     0  0.000 ! $ADG
+CR7   CR6   CR8   HPL	   15.00     0  0.000 ! $ADG
+CR6   CR5   CT3   CR7	   15.00     0  0.000 ! $ADG
+CR5   CT2   CR6   CT3	   15.00     0  0.000 ! $ADG
+!CR5   CR6   CT2   CT3     100.00     0  0.00 ! $ADG - commented
+!CR6   CT3   CR5   CR7     100.00     0  0.00 ! $ADG - commented
+!CR7   CR8   CR6   HPL     100.00     0  0.00 ! $ADG - commented
+!CR9   CR10  CR8   CT3     100.00     0  0.00 ! $ADG - commented
+!CR11  CR12  CR10  HPL     100.00     0  0.00 ! $ADG - commented
+!CR13  CR14  CR12  CT3     100.00     0  0.00 ! $ADG - commented
+
+!CR15  CR14  NCH1  HPL1     0.00     0  0.000	! $ADG
+!CR14  CR13  CR15  HPL	   0.00     0  0.000 	! $ADG
+!CR13  CR12  CR14  CT3	   0.00     0  0.000	! $ADG
+!CR12  CR11  CR13  HPL	   0.00     0  0.000  	! $ADG
+!CR11  CR10  CR12  HPL	   0.00     0  0.000	! $ADG
+!CR10  CR9   CR11  HPL	   0.00     0  0.000 	! $ADG
+!CR9   CR8   CR10  CT3	   0.00     0  0.000	! $ADG
+!CR8   CR7   CR9   HPL	   0.00     0  0.000  	! $ADG
+!CR7   CR6   CR8   HPL	   0.00     0  0.000	! $ADG
+!CR6   CR5   CT3   CR7	   0.00     0  0.000	! $ADG
+!CR5   CT2   CR6   CT3	   0.00     0  0.000	! $ADG
+						
+						
+!CR14 CR13 CR15 HPL1    5.750     0  0.000 	
+!CR13 CR14 CR12 CT      5.750     0  0.000	
+!CR12 CR11 CR13 HPL     5.750     0  0.000	
+!CR11 CR12 CR13 HPL     5.750     0  0.000	
+!CR11 CR12 CR10 HPL     5.750     0  0.000
+!CR10 CR9  CR11 HPL     5.750     0  0.000
+!CR9  CR10 CR8  CT      5.750     0  0.000
+!CR8  CR7  CR9  HPL     5.750     0  0.000
+!CR7  CR8  CR6  HPL     5.750     0  0.000
+!CR6  CT   CR5  CR7     5.750     0  0.000  
+!CR5  CR6  CT   CT      5.750     0  0.000
+!
+! Shiff base
+!
+!CR15 CR14 NCH1 HPL1 100.000     0  0.000 ! $ADG - commented 
+!NCH1  CR15 CT2 HCR    45.000     0  0.000 ! AMIDES PROTON OOP !$ADG - commented
+
+NCH1  CR15 CT2 HCR     0.000     0  0.000 ! &ADG - allow N pyramidalization
+
+
+!
+!
+!CR14 CR15 HPL  CR13    5.750     0  0.000 !pif
+!CR14 CR13 CR15 HPL     5.750     0  0.000 !pif  
+!CR13 CR14 HPL  CR12    5.750     0  0.000 !pif
+!CR15 HPL1 NCH1 CR14    5.750     0  0.000 !pif
+!!NCH1 CR15 CT   HCR     5.750     0  0.000 !pif
+
+NONBONDED nbxmod  5 group cdiel switch vgroup vdistance vswitch -
+cutnb 13.0 ctofnb 12.0 ctonnb 10.0 eps 1.0 e14fac 1.0 wmin 1.5 
+                !adm jr., 5/08/91, suggested cutoff scheme
+! Retinal Protonated Schiff base
+! ******************************
+! 
+! nonbonded parameters
+!
+CTR    0.000000  -0.156200     1.800000 ! Retinal Schiff base
+                ! methyl group ( idem CT ) Mafalda
+CR*    0.000000  -0.110000  2.100000  0.000 -0.110000 1.600000 !last 2  v14
+                ! RETINAL from ab initio calc's (J. Baudry) Sept. 1996
+HAR    0.000000  -0.007800     1.468000 !  Retinal Schiff base
+                !  methyl group E-N-methyl-2-propenylidenimine
+HCR    0.000000  -0.046    0.224500 
+                ! RETINAL from ab initio calc's (Mafalda)
+HPL    0.000000  -0.046000     0.87000 
+		! RETINAL from ab initio calc's (Mafalda)
+HPL1   0.000000  -0.0078000     0.87000 
+                ! RETINAL from ab initio calc's (Mafalda)
+NCH1   0.000000  -0.200000     1.950000 
+                ! RETINAL from ab initio calc's (Mafalda)
+
+DUHT   0.000000   0.000000     1.000000  ! Dummy for perturbation
+DUOT   0.000000   0.000000     1.000000  ! Dummy for perturbation
+! next 2 for half -vdw
+DHHT   0.000000  -0.023000     0.110000  ! Dummy for perturbation half cavity
+DHOT   0.000000  -0.072100     0.850000  ! Dummy for perturbation half cavity
+! next 2 for full vdw
+!DHHT   0.000000  -0.152100     1.700000  ! Dummy for perturbation half cavity
+!DHOT   0.000000  -0.152100     1.750000  ! Dummy for perturbation half cavity
+
+END
