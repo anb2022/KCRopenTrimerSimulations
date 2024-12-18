@@ -1,0 +1,82 @@
+# minimization and heating of rhomboid without native lipid
+
+paraTypeCharmm  on
+parameters          ../../../../data/par_all36_prot_lipid.prm
+parameters          ../../../../data/par_ret_chloride_final_retonly_c36l.inp
+
+# read coord files, split according to the constraints set
+structure        coord/step5_assembly_ret-optimized_read3x.psf
+coordinates      coord/step5_assembly_ret-optimized_read3.pdb
+bincoordinates   restarts/eq_1hck_trimer_ret-optimized_n44.rst.coor
+binvelocities    restarts/eq_1hck_trimer_ret-optimized_n44.rst.vel
+#firsttimestep    
+outputname       eq_1hck_trimer_ret-optimized_n45.out
+outputEnergies  10000
+outputTiming    10000
+binaryoutput    yes
+binaryrestart   yes
+restartname     restarts/eq_1hck_trimer_ret-optimized_n45.rst
+restartfreq     10000
+# set output files
+DCDfile         dcdfiles/eq_1hck_trimer_ret-optimized_n45.dcd
+DCDfreq         10000
+DCDUnitCell     yes
+XSTfile         xstfiles/eq_1hck_trimer_ret-optimized_n45.xst
+XSTfreq         10000
+extendedSystem  restarts/eq_1hck_trimer_ret-optimized_n44.rst.xsc
+velDCDfile      velocities/heat-popc2wat2prot5.dcd
+#VELfreq         2000
+
+# set harmonic constraints on the protein, lipids and water
+#constraints     on
+#consref         coord/step5_assembly_ret-optimized_read3_c6.pdb
+#conskfile       coord/step5_assembly_ret-optimized_read3_c6.pdb
+#conskcol        B
+
+
+# define non-bonded interactions
+exclude         scaled1-4
+1-4scaling      1.0
+switching       on
+switchdist      10.0
+cutoff          12.0
+pairlistdist    16.0
+vdwForceSwitching   yes
+#rigidBonds      all
+
+timestep                1.0;                # fs/step
+rigidBonds              all;                # Bound constraint all bonds involving H are fixed in length
+fullElectFrequency      4
+nonbondedFreq   2
+
+# define langevin parameters
+langevin        on
+langevinDamping 5
+langevinTemp    300
+
+# set boundary conditions and PME
+#cellBasisVector1    140.04    0.0   0.0
+#cellBasisVector2     0.0  139.15932   0.0
+#cellBasisVector3     0.0    0.0 113.501992
+#cellOrigin          0.0   0.0  0.0
+
+PME             on
+PMEGridSizeX    144
+PMEGridSizeY    144
+PMEGridSizeZ    128
+
+# set the dynamics run
+# set the dynamics run
+useGroupPressure   yes
+useFlexibleCell    yes
+useConstantRatio   no 
+LangevinPiston     on
+LangevinPistonTarget    1.0     #pressure in bar
+LangevinPistonPeriod    200
+LangevinPistonDecay     100
+LangevinPistonTemp      300
+
+#final temperature and run 100000 steps
+
+run 11000000
+
